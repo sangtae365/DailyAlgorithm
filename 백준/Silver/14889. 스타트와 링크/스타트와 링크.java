@@ -49,5 +49,9 @@ public class Main {
 		}
 		
 		ans = Math.min(ans, Math.abs(start -link));
+		if(ans == 0) {
+			System.out.println(ans);
+			System.exit(0);
+		}
 	}
 }
