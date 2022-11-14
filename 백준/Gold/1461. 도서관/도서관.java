@@ -34,20 +34,19 @@ public class Main {
 		
 		int ans = 0;
 		
-		while(plus_pq.size()>M) {
+		while(!plus_pq.isEmpty()) {
 			ans += plus_pq.peek() * 2;
 			for(int i=0;i<M;i++) {
 				plus_pq.poll();
 			}
 		}
-		if(!plus_pq.isEmpty())ans += plus_pq.peek()*2;
-		while(minus_pq.size()>M) {
+		
+		while(!minus_pq.isEmpty()) {
 			ans += minus_pq.peek() * 2;
 			for(int i=0;i<M;i++) {
 				minus_pq.poll();
 			}
 		}
-		if(!minus_pq.isEmpty())ans += minus_pq.peek() * 2;
 		
 		System.out.println(ans-max);
 	}
