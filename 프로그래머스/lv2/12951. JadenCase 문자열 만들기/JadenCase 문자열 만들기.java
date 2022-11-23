@@ -3,26 +3,23 @@ import java.lang.*;
 import java.io.*;
 class Solution {
     public String solution(String s) {
-        String answer = "";
-    	String[] arr = s.split(" ");
-    	for(int i=0; i<arr.length; i++) {
-    		String now = arr[i];
-    		
-    		if(arr[i].length() == 0) {
-    			answer += " ";
-    		} 
-    		else {
-    			answer += now.substring(0, 1).toUpperCase();
-    			answer += now.substring(1, now.length()).toLowerCase();
-    			answer += " ";
-    		}
-    		
-    	}
-    	
-    	if(s.substring(s.length()-1, s.length()).equals(" ")){
-    		return answer;
-    	}
-    	
-        return answer.substring(0, answer.length()-1);
+        StringBuilder sb = new StringBuilder();
+        boolean flag = true;
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            if(ch == ' '){
+                flag = true;
+                sb.append(" ");
+                continue;
+            }
+            if(flag){
+                sb.append(Character.toUpperCase(ch));
+                flag = false;
+            }else{
+                sb.append(Character.toLowerCase(ch));
+            }
+        }
+        
+        return sb.toString();
     }
 }
